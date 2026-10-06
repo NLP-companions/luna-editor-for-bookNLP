@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "luna-booknlp-editor"
+dynamic = ["version"]
+description = "Luna: correct BookNLP output (tokens, entities, coreference, quotes) in your browser."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md"]
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+]
+
+[project.optional-dependencies]
+spacy = ["spacy"]               # re-tagging suggestions after structural edits (also needs: python -m spacy download en_core_web_sm)
+embed = ["torch", "transformers"]   # optional speech-similarity evidence from a transformer model
+dev = ["httpx"]                 # FastAPI's test client
+
+[project.urls]
+Homepage = "https://github.com/sapphophonic/luna-booknlp-editor"
+
+[project.scripts]
+luna = "luna.app:main"
+
+[tool.setuptools.dynamic]
+version = {attr = "luna.__version__"}
+
+[tool.setuptools.packages.find]
+include = ["luna*"]
+
+[tool.setuptools.package-data]
+luna = ["static/**/*"]

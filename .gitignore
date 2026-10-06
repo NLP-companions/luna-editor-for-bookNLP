@@ -1,0 +1,19 @@
+# your own files: working copies, exports, and the library and collections you build up (see README, "Where Luna keeps its files")
+luna-data/
+# the same files, if Luna is started with --data pointing at the repository folder itself
+projects/
+exports/
+library.json
+collections.json
+
+# Python, tools, editors
+__pycache__/
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+luna-env/
+.pytest_cache/
+.DS_Store
+.claude/

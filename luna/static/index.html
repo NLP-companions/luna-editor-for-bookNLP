@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Luna - a BookNLP editor</title>
+<script src="/static/js/theme.js"></script>
+<link rel="stylesheet" href="/static/css/app.css">
+</head>
+<body>
+<div id="app">
+  <header class="bar">
+    <div class="brand"><a class="btn sm" href="/library" title="All books and working copies (BookNLP editor)">Library</a><button class="btn sm" id="backBtn" title="Back to where you were (⌘[)" disabled>← Back</button><span class="bookid" id="bookid"></span></div>
+    <div class="seg" id="viewSwitch" role="group" aria-label="View"><button data-view="table" title="Table view ( v )">Table</button><button data-view="annot" title="Annotation view ( v )">Annotation</button><button data-view="chars" title="Entities: coreference groups of every type">Entities</button><button data-view="quotes" title="All quotes and their speakers">Quotes</button><button data-view="flags" title="Flags and comments you left to check on later">Flags <span class="badge" id="flagsBadge" hidden></span></button></div>
+    <nav class="pager" id="pagerNav" aria-label="Sentences">
+      <button class="btn sm" id="prevBtn" title="Previous page ( [ )">‹</button>
+      <span id="range" class="range"></span>
+      <button class="btn sm" id="nextBtn" title="Next page ( ] )">›</button>
+      <input id="goto" type="text" placeholder="Go to s12, t340" aria-label="Go to sentence or token" autocomplete="off">
+      <select id="perPage" aria-label="Sentences per page">
+        <option value="5">5 / page</option><option value="15">15 / page</option>
+        <option value="30">30 / page</option><option value="60">60 / page</option>
+      </select>
+    </nav>
+    <div class="actions">
+      <button class="btn" id="findBtn" title="Find ( / )">Find</button>
+      <button class="btn" id="colsBtn">Columns</button>
+      <button class="btn" id="undoBtn" title="Undo (⌘Z)">Undo</button>
+      <button class="btn" id="redoBtn" title="Redo (⇧⌘Z)">Redo</button>
+      <span class="savestat" id="saveStat" role="status" aria-live="polite" title="Every change is saved to the working copy as you make it"></span>
+      <a class="btn sm" id="settingsBtn" href="/settings" title="Suggestion settings, BookNLP output folders, display — everything that applies to every book">Settings</a>
+      <span class="revbox"><span id="revProg" class="num" title="Sentences marked as reviewed"></span><button class="btn sm" id="nextRevBtn" title="Go to the next sentence not yet reviewed">Next unreviewed</button></span>
+      <button class="btn warn" id="sugBtn" hidden>Suggestions</button>
+      <button class="btn" id="histBtn">History</button>
+      <button class="btn primary" id="exportBtn">Export</button>
+    </div>
+  </header>
+  <form id="findbar" class="findbar" hidden autocomplete="off">
+    <select id="fLayer" aria-label="Layer"></select>
+    <select id="fField" aria-label="Field"></select>
+    <select id="fOp" aria-label="Condition"></select>
+    <input id="fValue" type="text" placeholder="Value" aria-label="Value">
+    <select id="fWhere" aria-label="Where in the text" title="Only look in narration, or only inside quotes"></select>
+    <select id="fWithout" aria-label="Not yet annotated" title="Leave out what already has an entity, supersense or quote"></select>
+    <button class="btn primary" type="submit">Find</button>
+    <span id="fCount" class="num"></span>
+    <button class="btn" type="button" id="fClose">Close</button>
+  </form>
+  <div id="banner" class="banner" hidden></div>
+  <div class="body">
+    <main id="main" tabindex="-1"></main>
+    <aside id="panel" class="panel" aria-label="Details"></aside>
+  </div>
+</div>
+<div id="drawer" class="drawer" hidden></div>
+<div id="pop" class="pop" hidden></div>
+<div id="datalists"></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="/static/js/app.js"></script>
+<script src="/static/js/bulk.js"></script>
+<script src="/static/js/entities.js"></script>
+<script src="/static/js/rules.js"></script>
+<script src="/static/js/quotesug.js"></script>
+<script src="/static/js/passui.js"></script>
+<script src="/static/js/qpassui.js"></script>
+<script src="/static/js/corefui.js"></script>
+</body>
+</html>

@@ -68,7 +68,7 @@ Luna only reads your BookNLP folders. Its own files (your working copies, what E
 
 ## Companion analyser
 
-Luna works on its own. A separate companion analyser, aLex (link to follow), explores books processed by BookNLP: entities, dialogue, corpus tools and more. It reads Luna's exports directly: point it at the folder Luna's exports are written to, and the newest export of each book is used.
+Luna works on its own. A separate companion analyser, aLex ([aLex-for-bookNLP](https://github.com/sapphophonic/aLex-for-bookNLP)), explores books processed by BookNLP: entities, dialogue, corpus tools and more. It reads Luna's exports directly: point it at the folder Luna's exports are written to, and the newest export of each book is used.
 
 ## Development
 
